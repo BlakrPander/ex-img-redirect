@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://ehgt.org/\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://s\\.exhentai\\.org/(.*)$",
+      "resourceTypes": [
+        "image", "media", "object", "xmlhttprequest", "other",
+        "main_frame", "sub_frame", "font"
+      ]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "regexSubstitution": "https://ehgt.org/\\1"
+      }
+    },
+    "condition": {
+      "regexFilter": "^https?://s\\d+\\.exhentai\\.org/(.*)$",
+      "resourceTypes": [
+        "image", "media", "object", "xmlhttprequest", "other",
+        "main_frame", "sub_frame", "font"
+      ]
+    }
+  }
+]

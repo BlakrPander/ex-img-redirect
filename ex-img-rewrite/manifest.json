@@ -1,0 +1,45 @@
+{
+  "manifest_version": 3,
+  "name": "EX 图片域重定向 (s.exhentai.org → ehgt.org)",
+  "version": "1.0.1",
+  "description": "自动把 s.exhentai.org（及 s1/s2/s3…）的图片请求重定向到 ehgt.org，路径完整保留。请求层拦截，页面无闪烁。",
+  "permissions": [
+    "declarativeNetRequest",
+    "declarativeNetRequestFeedback",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "*://*.exhentai.org/*",
+    "https://ehgt.org/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "ex_img_redirect",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.exhentai.org/*",
+        "*://*.e-hentai.org/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_idle",
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_title": "EX 图片域重定向",
+    "default_popup": "popup.html"
+  }
+}

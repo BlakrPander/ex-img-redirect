@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>EX 图片域重定向</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body {
+      width: 320px; margin: 0; padding: 12px;
+      font: 13px/1.5 system-ui, "Segoe UI", "Microsoft YaHei", sans-serif;
+    }
+    h1 { font-size: 14px; margin: 0 0 10px; display: flex; align-items: center; gap: 6px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: #999; flex: none; }
+    .dot.on { background: #1a7f37; }
+    .dot.off { background: #c62828; }
+    .row {
+      display: flex; justify-content: space-between; gap: 8px;
+      padding: 5px 0; border-bottom: 1px solid rgba(128,128,128,.2);
+    }
+    .row:last-of-type { border-bottom: none; }
+    .k { color: #666; }
+    @media (prefers-color-scheme: dark) { .k { color: #aaa; } }
+    .v { font-weight: 600; text-align: right; word-break: break-all; }
+    button {
+      width: 100%; margin-top: 10px; padding: 7px 10px; cursor: pointer;
+      border-radius: 6px; border: 1px solid rgba(128,128,128,.45);
+      background: rgba(128,128,128,.12); font: inherit;
+    }
+    button:hover { background: rgba(128,128,128,.22); }
+    button:disabled { opacity: .5; cursor: default; }
+    ul { margin: 6px 0 0; padding-left: 16px; max-height: 120px; overflow: auto; }
+    li { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; font-size: 11px; color: #555; }
+    @media (prefers-color-scheme: dark) { li { color: #aaa; } }
+    .hint { margin-top: 8px; font-size: 11px; color: #888; }
+    a { color: #1a73e8; }
+  </style>
+</head>
+<body>
+  <h1><span id="dot" class="dot"></span><span id="title">EX 图片域重定向</span></h1>
+
+  <div class="row"><span class="k">规则集</span><span class="v" id="ruleset">—</span></div>
+  <div class="row"><span class="k">请求层拦截</span><span class="v" id="dnr">—</span></div>
+  <div class="row"><span class="k">页内改写（DOM）</span><span class="v" id="domcount">—</span></div>
+  <div class="row"><span class="k">当前标签页</span><span class="v" id="tabinfo">—</span></div>
+
+  <button id="toggle">禁用</button>
+  <button id="refresh" style="margin-top:6px">刷新诊断</button>
+
+  <ul id="samples"></ul>
+
+  <script src="popup.js"></script>
+</body>
+</html>
