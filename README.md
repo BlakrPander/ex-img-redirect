@@ -1,4 +1,4 @@
-# EX 图片域重定向 · s.exhentai.org → ehgt.org
+# Exhentai 图片域重定向 · s.exhentai.org → ehgt.org 用于解决无法在主页看到预览图的问题
 
 一个 Chrome / Edge 扩展（Manifest V3），把 `s.exhentai.org`（以及 `s1`/`s2`/`s3`… 这类编号子域）的图片请求，在网络请求层重定向到 `ehgt.org`，**路径、文件名、查询参数完整保留**。
 
